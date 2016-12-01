@@ -58,6 +58,11 @@ public class Arista {
     public void setPeso(int peso) {
         this.peso = peso;
     }
+
+    @Override
+    public String toString() {
+        return "Arista{" + "puntoA=" + puntoA + ", puntoB=" + puntoB + ", peso=" + peso + '}';
+    }
     
     
 }

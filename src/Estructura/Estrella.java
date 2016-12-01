@@ -52,6 +52,11 @@ public class Estrella {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "ID=" +id;
+    }
+
     
     
 }

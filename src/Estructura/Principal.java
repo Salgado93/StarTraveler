@@ -5,6 +5,8 @@
  */
 package Estructura;
 
+import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,6 +37,16 @@ public class Principal extends javax.swing.JFrame {
         jl_nombre = new javax.swing.JLabel();
         tf_nombre = new javax.swing.JTextField();
         jb_agregar = new javax.swing.JButton();
+        jb_agregarAristas = new javax.swing.JButton();
+        jd_agregarAristas = new javax.swing.JDialog();
+        jl_punto1 = new javax.swing.JLabel();
+        jl_punto2 = new javax.swing.JLabel();
+        jl_flecha = new javax.swing.JLabel();
+        jc_puntoA = new javax.swing.JComboBox<>();
+        jc_puntoB = new javax.swing.JComboBox<>();
+        jb_agregarArista = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        tf_peso = new javax.swing.JTextField();
         jmb_menu = new javax.swing.JMenuBar();
         jm_file = new javax.swing.JMenu();
         jmi_ingresarEstrellas = new javax.swing.JMenuItem();
@@ -53,6 +65,13 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jb_agregarAristas.setText("Agregar Aristas");
+        jb_agregarAristas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_agregarAristasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_ingresarEstrellasLayout = new javax.swing.GroupLayout(jd_ingresarEstrellas.getContentPane());
         jd_ingresarEstrellas.getContentPane().setLayout(jd_ingresarEstrellasLayout);
         jd_ingresarEstrellasLayout.setHorizontalGroup(
@@ -60,11 +79,12 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jd_ingresarEstrellasLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(jd_ingresarEstrellasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jb_agregar)
-                    .addGroup(jd_ingresarEstrellasLayout.createSequentialGroup()
-                        .addComponent(jl_nombre)
-                        .addGap(18, 18, 18)
-                        .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jl_nombre)
+                    .addComponent(jb_agregar))
+                .addGap(18, 18, 18)
+                .addGroup(jd_ingresarEstrellasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_agregarAristas)
+                    .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(432, Short.MAX_VALUE))
         );
         jd_ingresarEstrellasLayout.setVerticalGroup(
@@ -75,11 +95,87 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jl_nombre))
                 .addGap(60, 60, 60)
-                .addComponent(jb_agregar)
+                .addGroup(jd_ingresarEstrellasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_agregar)
+                    .addComponent(jb_agregarAristas))
                 .addContainerGap(349, Short.MAX_VALUE))
         );
 
         jd_ingresarEstrellasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jl_nombre, tf_nombre});
+
+        jl_punto1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_punto1.setText("Punto A");
+
+        jl_punto2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_punto2.setText("Punto B");
+
+        jl_flecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jl_flecha.setText("--->");
+
+        jb_agregarArista.setText("Agregar Arista");
+        jb_agregarArista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_agregarAristaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Peso");
+
+        javax.swing.GroupLayout jd_agregarAristasLayout = new javax.swing.GroupLayout(jd_agregarAristas.getContentPane());
+        jd_agregarAristas.getContentPane().setLayout(jd_agregarAristasLayout);
+        jd_agregarAristasLayout.setHorizontalGroup(
+            jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarAristasLayout.createSequentialGroup()
+                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregarAristasLayout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jl_flecha, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_agregarAristasLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jb_agregarArista)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jd_agregarAristasLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jd_agregarAristasLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tf_peso))
+                    .addComponent(jl_punto1)
+                    .addComponent(jc_puntoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jc_puntoB, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_punto2))
+                .addGap(75, 75, 75))
+        );
+
+        jd_agregarAristasLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jc_puntoA, jc_puntoB});
+
+        jd_agregarAristasLayout.setVerticalGroup(
+            jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarAristasLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_punto1)
+                    .addComponent(jl_punto2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_flecha)
+                .addGap(4, 4, 4)
+                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jc_puntoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jc_puntoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(tf_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addComponent(jb_agregarArista)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        jd_agregarAristasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, tf_peso});
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Star Traveler");
@@ -124,7 +220,7 @@ public class Principal extends javax.swing.JFrame {
     private void jb_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarActionPerformed
         // TODO add your handling code here:
         try {
-            int id = grafo.getVertices().size()-1;
+            int id = grafo.getVertices().size()+1;
             Estrella estrella = new Estrella(id,tf_nombre.getText());
             grafo.AddVertice(estrella);
             System.out.println(id);
@@ -135,6 +231,42 @@ public class Principal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jb_agregarActionPerformed
+
+    private void jb_agregarAristasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarAristasActionPerformed
+        // TODO add your handling code here:
+        try {
+            jc_puntoA.removeAllItems();
+            jc_puntoA.removeAllItems();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            DefaultComboBoxModel model2 = new DefaultComboBoxModel();
+            for (int i = 0; i < grafo.getVertices().size(); i++) {
+                model.addElement((Estrella)grafo.getVertices().get(i).getValor());
+                model2.addElement((Estrella)grafo.getVertices().get(i).getValor());
+            }
+            jc_puntoA.setModel(model);
+            jc_puntoB.setModel(model2);
+            jd_agregarAristas.setModal(true);
+            jd_agregarAristas.pack();
+            jd_agregarAristas.setLocationRelativeTo(this);
+            jd_agregarAristas.setVisible(true);
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_jb_agregarAristasActionPerformed
+
+    private void jb_agregarAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarAristaActionPerformed
+        // TODO add your handling code here:
+        try {
+            Estrella puntoA = (Estrella)jc_puntoA.getSelectedItem();
+            Estrella puntoB = (Estrella) jc_puntoB.getSelectedItem();
+            int peso = Integer.parseInt(tf_peso.getText());
+            Arista arista = new Arista(Color.BLACK,puntoA,puntoB,peso);
+            grafo.AddArista(arista);
+            System.out.println("Arista Agregada: " +arista);
+            JOptionPane.showMessageDialog(null, "Arista Agregada");
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jb_agregarAristaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,13 +304,23 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jb_agregar;
+    private javax.swing.JButton jb_agregarArista;
+    private javax.swing.JButton jb_agregarAristas;
+    private javax.swing.JComboBox<String> jc_puntoA;
+    private javax.swing.JComboBox<String> jc_puntoB;
+    private javax.swing.JDialog jd_agregarAristas;
     private javax.swing.JDialog jd_ingresarEstrellas;
+    private javax.swing.JLabel jl_flecha;
     private javax.swing.JLabel jl_nombre;
+    private javax.swing.JLabel jl_punto1;
+    private javax.swing.JLabel jl_punto2;
     private javax.swing.JMenu jm_file;
     private javax.swing.JMenuBar jmb_menu;
     private javax.swing.JMenuItem jmi_ingresarEstrellas;
     private javax.swing.JTextField tf_nombre;
+    private javax.swing.JTextField tf_peso;
     // End of variables declaration//GEN-END:variables
     Grafo grafo;
 }
