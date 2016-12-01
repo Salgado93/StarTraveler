@@ -22,6 +22,11 @@ public class Estrella {
         this.numAristas = numAristas;
         this.nombre = nombre;
     }
+    public Estrella(int id, String nombre) {
+        this.id = id;
+        this.numAristas=0;
+        this.nombre = nombre;
+    }
 
     public int getId() {
         return id;

@@ -38,10 +38,11 @@ public class Grafo {
     public void setAristas(Lista aristas) {
         this.aristas = aristas;
     }
+    
     public void AddVertice(Estrella entrada){
         vertices.insert(new Nodo(null,entrada));
     }
-    public void AddVertice(Arista entrada){
+    public void AddArista(Arista entrada){
         aristas.insert(new Nodo(null,entrada));
     }
 }

@@ -16,7 +16,12 @@ public class MainGrafo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
+        Grafo grafo = new Grafo();
+        grafo.AddVertice(new Estrella(5,"Estrella1"));
+        grafo.AddVertice(new Estrella(2,"Estrella2"));
+        grafo.AddVertice(new Estrella(2,"Estrella3"));
+        System.out.println(grafo.getVertices().size());
+        
     }
 
     static void Dijkstra(Estrella origen, Grafo grafo) {

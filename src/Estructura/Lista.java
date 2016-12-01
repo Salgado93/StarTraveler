@@ -33,7 +33,7 @@ public class Lista {
     }
     public Nodo get(int posicion){
         Nodo tem=head;
-        while(posicion>=0){
+        while(posicion>0){
             tem=tem.getNext();
             posicion--;
         }
