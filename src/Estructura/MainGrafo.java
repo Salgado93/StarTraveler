@@ -29,43 +29,72 @@ public class MainGrafo {
         for (int i = 0; i < grafo.getVertices().size(); i++) {
             visitados.insert(new Nodo(null, false));
         }
-        int[] adyaVisitados=new int[origen.getNumAristas()];//cambiar por pila
-        for (int i = 0; i < adyaVisitados.length; i++) {
-            adyaVisitados[i]=-1;
+        int[][] matriz=new int[grafo.getVertices().size()][grafo.getVertices().size()-1];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                matriz[i][j]=Integer.MAX_VALUE;
+            }
         }
-        Estrella adyacente=Adyacente(origen,grafo,adyaVisitados);
-        while(true){
+        Pila adyacentes=new Pila();
+        Pila adyacentes2=new Pila();
+        Estrella actual=origen;
+        adyacentes2=Adyacentes(actual,grafo,adyacentes2);
+        for (int i = 0; i < grafo.getVertices().size(); i++) {
+            adyacentes=Adyacentes(actual,grafo,adyacentes);
+            for (int j = 0; j < actual.getNumAristas(); j++) {
+                Estrella temporal=(Estrella)adyacentes.Desapilar();
+                matriz[i][temporal.getId()-1]=Peso(actual,temporal,grafo,origen);
+            }
+            actual=(Estrella)adyacentes2.Desapilar();
+        }
             
-            break;
-        }
-        
-        for (int i = 0; i < origen.getNumAristas(); i++) {
-
-        }
     }
-
-    static Estrella Adyacente(Estrella actual, Grafo grafo, int[] adyaVisitados) {
-        Estrella adyacente = new Estrella(Integer.MAX_VALUE,0,"");//cambiar por pila
-        Lista adyacentes = new Lista();//cambiar por pila
+    static int Peso(Estrella puntoA,Estrella puntoB,Grafo grafo,Estrella origen){
+        int peso=0,peso2=0;
+        for (int i = 0; i < grafo.getAristas().size(); i++) {
+            if (((Arista)grafo.getAristas().get(i).getValor()).getPuntoA()==puntoA&&
+                    ((Arista)grafo.getAristas().get(i).getValor()).getPuntoB()==puntoB&&((Arista)grafo.getAristas().get(i).getValor()).getPuntoA()==origen) {
+                peso=((Arista)grafo.getAristas().get(i).getValor()).getPeso();
+            }else if((((Arista)grafo.getAristas().get(i).getValor()).getPuntoA()==puntoA&&
+                    ((Arista)grafo.getAristas().get(i).getValor()).getPuntoB()==puntoB)){
+                Estrella anterior=origen;
+                boolean noEncontrado=true;
+                Pila adyacentes=null;
+                    adyacentes=Adyacentes(anterior,grafo,adyacentes);
+                    Pila adyacentes2=adyacentes;
+                do {
+                    while(!adyacentes.IsEmpty()){
+                        Estrella temporal=(Estrella)adyacentes.Desapilar();
+                        if (temporal==puntoA) {
+                            noEncontrado=false;
+                            break;
+                        }
+                    }
+                    if (!noEncontrado) {
+                        anterior=(Estrella)adyacentes2.Desapilar();
+                    }
+                } while (noEncontrado);
+                
+                for (int j = 0; j < grafo.getAristas().size(); j++) {
+                    if (((Arista)grafo.getAristas().get(j).getValor()).getPuntoA()==anterior&&((Arista)grafo.getAristas().get(j).getValor()).getPuntoB()==puntoA) {
+                        peso2=((Arista)grafo.getAristas().get(j).getValor()).getPeso();
+                    }
+                }
+                peso=((Arista)grafo.getAristas().get(i).getValor()).getPeso()+peso2;
+            }
+        }
+        return peso;
+    }
+    static Pila Adyacentes(Estrella actual, Grafo grafo, Pila adyacentes) {
         for (int i = 0; i < grafo.getAristas().size(); i++) {
             if (((Arista) grafo.getAristas().get(i).getValor()).getPuntoA().getId() == actual.getId()) {
-                adyacentes.insert(new Nodo(null, (Arista) grafo.getAristas().get(i).getValor()));
+               adyacentes.Apilar(new Nodo(null, (Arista) grafo.getAristas().get(i).getValor()));
             }
             if (i==actual.getNumAristas()) {
                 break;
             }
         }
-        //cambiar por pila todo esto eliminado
-        for (int i = 0; i < actual.getNumAristas(); i++) {
-            for (int j = 0; j < adyaVisitados.length; j++) {
-                if (((Arista) adyacentes.get(i).getValor()).getPuntoB().getId() != adyaVisitados[j]&&
-                        ((Arista) adyacentes.get(i).getValor()).getPuntoB().getId()<adyacente.getId()) {
-                    adyacente = (Estrella) adyacentes.get(i).getValor();
-                    adyaVisitados[i] = ((Estrella) adyacentes.get(i).getValor()).getId();
-                    
-                }
-            }
-        }
-        return adyacente;
+        adyacentes.ordenar();
+        return adyacentes;
     }
 }

@@ -41,7 +41,7 @@ public class Lista {
     }
     public int size(){
         Nodo tem=head;
-        int salida=1;
+        int salida=0;
         while(tem!=null){
             tem=tem.getNext();
             salida++;
