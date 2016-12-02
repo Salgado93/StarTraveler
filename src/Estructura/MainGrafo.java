@@ -37,15 +37,16 @@ public class MainGrafo {
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(2).getValor(), (Estrella) grafo.getVertices().get(6).getValor(), 7));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(6).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 5));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(5).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 20));
-        Dijkstra((Estrella) grafo.getVertices().get(0).getValor(), grafo);
-
+        Pila camino=new Pila();
+        camino=Dijkstra((Estrella) grafo.getVertices().get(0).getValor(),(Estrella) grafo.getVertices().get(7).getValor(), grafo);
+        while(!camino.IsEmpty()){
+            System.out.println("["+camino.Desapilar()+"]");
+        } 
     }
 
-    static void Dijkstra(Estrella origen, Grafo grafo) {
-        Lista visitados = new Lista();
-        for (int i = 0; i < grafo.getVertices().size(); i++) {
-            visitados.insert(new Nodo(null, false));
-        }
+    static Pila Dijkstra(Estrella origen,Estrella destino, Grafo grafo) {
+        Pila camino=new Pila();
+        
         int[][] matriz = new int[grafo.getVertices().size()][grafo.getVertices().size()];
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
@@ -53,25 +54,28 @@ public class MainGrafo {
             }
         }
         Pila adyacentes = new Pila();
-        Pila adyacentes2 = new Pila();
         Cola adyacentes3 = new Cola();
         Estrella actual = origen;
-        adyacentes2 = Adyacentes(actual, grafo, adyacentes2);
         for (int i = 0; i < grafo.getVertices().size(); i++) {
             adyacentes = Adyacentes(actual, grafo, adyacentes);
             while (!adyacentes.IsEmpty()) {
                 Estrella temporal = (Estrella) adyacentes.Desapilar();
-                System.err.println("Estrela" + temporal);
                 adyacentes3.queue(temporal);
                 int peso = Peso(actual, temporal, grafo, origen);
                 if (i > 0) {
                     if (peso < matriz[i - 1][temporal.getId() - 1]) {
                         matriz[i][temporal.getId() - 1] = Peso(actual, temporal, grafo, origen);
+                        if (temporal.getId()==destino.getId()) {//----------------->aqui
+                            camino=Camino(actual,temporal,grafo,origen);
+                        }
                     } else {
                         matriz[i][temporal.getId() - 1] = matriz[i - 1][temporal.getId() - 1];
                     }
                 } else {
                     matriz[i][temporal.getId() - 1] = Peso(actual, temporal, grafo, origen);
+                    if (temporal.getId()==destino.getId()) {//----------------->aqui
+                            camino=Camino(actual,temporal,grafo,origen);
+                    }
                 }
 
             }
@@ -91,13 +95,9 @@ public class MainGrafo {
             }
             System.out.println("");
         }
-
+          
+        return camino;
     }
-
-    static void Peso2(int peso, Estrella anterior, Grafo grafo, Estrella puntoA) {
-
-    }
-
     static int Peso(Estrella puntoA, Estrella puntoB, Grafo grafo, Estrella origen) {
         int peso = 0, peso2 = 0;
         for (int i = 0; i < grafo.getAristas().size(); i++) {
@@ -171,11 +171,82 @@ public class MainGrafo {
         }
         return peso;
     }
+    static Pila Camino(Estrella puntoA, Estrella puntoB, Grafo grafo, Estrella origen) {
+        Pila aristas=new Pila();
+        for (int i = 0; i < grafo.getAristas().size(); i++) {
+            if (((Arista) grafo.getAristas().get(i).getValor()).getPuntoA() == puntoA
+                    && ((Arista) grafo.getAristas().get(i).getValor()).getPuntoB() == puntoB && ((Arista) grafo.getAristas().get(i).getValor()).getPuntoA() == origen) {
+                aristas.Apilar((Arista)grafo.getAristas().get(i).getValor());
+            } else if ((((Arista) grafo.getAristas().get(i).getValor()).getPuntoA() == puntoA
+                    && ((Arista) grafo.getAristas().get(i).getValor()).getPuntoB() == puntoB)) {
+                Estrella anterior = origen;
+                boolean noEncontrado = true;
+                Pila adyacentes = new Pila();
+                Cola adyacentes3 = new Cola();
+                do {
+                    adyacentes = Adyacentes(anterior, grafo, adyacentes);
+                    while (!adyacentes.IsEmpty()) {
+                        Estrella temporal = (Estrella) adyacentes.Desapilar();
+                        adyacentes3.queue(temporal);
+                        if (temporal.getId() == puntoA.getId()) {
+                            noEncontrado = false;
+                            break;
+                        }
+                    }
+                    if (noEncontrado) {
+                        if (!adyacentes3.isEmpty()) {
+                            anterior = (Estrella) adyacentes3.Dequeue();
+                        } else {
+                            noEncontrado = false;
+                        }
+                    }
+                } while (noEncontrado);
+                for (int j = 0; j < grafo.getAristas().size(); j++) {
+                    if (((Arista) grafo.getAristas().get(j).getValor()).getPuntoA() == anterior && ((Arista) grafo.getAristas().get(j).getValor()).getPuntoB() == puntoA) {
+                        aristas.Apilar((Arista)grafo.getAristas().get(j).getValor());
+                    }
+                }
+                Estrella temPuntoA = origen;
+                if (anterior.getId() != origen.getId()) {
+                    do {
+                        noEncontrado = true;
+                        adyacentes = new Pila();
+                        adyacentes3 = new Cola();
 
+                        do {
+                            adyacentes = Adyacentes(temPuntoA, grafo, adyacentes);
+                            while (!adyacentes.IsEmpty()) {
+                                Estrella temporal = (Estrella) adyacentes.Desapilar();
+                                adyacentes3.queue(temporal);
+                                if (temporal.getId() == anterior.getId()) {
+                                    noEncontrado = false;
+                                    break;
+                                }
+                            }
+                            if (noEncontrado) {
+                                if (!adyacentes3.isEmpty()) {
+                                    temPuntoA = (Estrella) adyacentes3.Dequeue();
+                                } else {
+                                    noEncontrado = false;
+                                }
+                            }
+                        } while (noEncontrado);
+                        for (int j = 0; j < grafo.getAristas().size(); j++) {
+                            if (((Arista) grafo.getAristas().get(j).getValor()).getPuntoA() == temPuntoA && ((Arista) grafo.getAristas().get(j).getValor()).getPuntoB() == anterior) {
+                                aristas.Apilar((Arista)grafo.getAristas().get(j).getValor());
+                            }
+                        }
+                        anterior = temPuntoA;
+                    } while (temPuntoA.getId() != origen.getId());
+                }
+                aristas.Apilar((Arista)grafo.getAristas().get(i).getValor());
+            }
+        }
+        return aristas;
+    }
     static Pila Adyacentes(Estrella actual, Grafo grafo, Pila adyacentes) {
         for (int i = 0; i < grafo.getAristas().size(); i++) {
             if (((Arista) grafo.getAristas().get(i).getValor()).getPuntoA().getId() == actual.getId()) {
-                System.out.println((Arista) ((Arista) grafo.getAristas().get(i).getValor()));
                 adyacentes.Apilar((Estrella) ((Arista) grafo.getAristas().get(i).getValor()).getPuntoB());
             }
             /* if (i == actual.getNumAristas()) {
