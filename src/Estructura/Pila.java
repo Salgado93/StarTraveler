@@ -10,6 +10,7 @@ package Estructura;
  * @author luigy
  */
 public class Pila {
+
     private Nodo head;
 
     public Pila(Nodo head) {
@@ -17,8 +18,9 @@ public class Pila {
     }
 
     public Pila() {
-        head=null;
+        head = null;
     }
+
     public Nodo getHead() {
         return head;
     }
@@ -31,56 +33,64 @@ public class Pila {
         if (head == null) {
             head = new Nodo(null, nuevo);
         } else {
-            head = new Nodo(head, null);
+            head = new Nodo(head, nuevo);
         }
     }
 
-    Object Desapilar() {
-       Nodo salida=head;
-       head=head.getNext();
-       return salida.getValor();
+    public Object Desapilar() {
+        Nodo salida = head;
+        head = head.getNext();
+        return salida.getValor();
     }
-    int getSize(){
-        int salida=1;
-        Nodo tem=head;
-        while(tem!=null){
+
+    int getSize() {
+        int salida = 0;
+        Nodo tem = head;
+        while (tem != null) {
+            tem = tem.getNext();
             salida++;
         }
+        
         return salida;
     }
-    boolean IsEmpty(){
-        if (head==null) {
+
+    boolean IsEmpty() {
+        if (head == null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
+
     void listar() {
         Nodo tem = head;
         while (tem != null) {
-            System.out.print("[" + tem.getValor() + "]");
             tem = tem.getNext();
         }
         System.out.println();
     }
-    void ordenar(){
-        
+
+    void ordenar() {
         Estrella[] orden = new Estrella[this.getSize()];
         for (int i = 0; i < orden.length; i++) {
-            orden[i]=(Estrella)this.Desapilar();
+            orden[i] = (Estrella) Desapilar();
+
         }
+
         Estrella temp;
         for (int i = 1; i < orden.length; i++) {
-            for (int j = 0; j < orden.length-1; j++) {
-                if (orden[j].getId()<orden[j+1].getId()) {
-                    temp=orden[j];
-                    orden[j]=orden[j+1];
-                    orden[j]=temp;
+            for (int j = 0; j < orden.length - 1; j++) {
+                if (orden[j].getId() < orden[j + 1].getId()) {
+                    temp = orden[j];
+                    orden[j] = orden[j + 1];
+                    orden[j] = temp;
                 }
             }
         }
         for (int i = 0; i < orden.length; i++) {
-            this.Apilar(new Nodo(null,orden[i]));
+            this.Apilar(orden[i]);
         }
+             
     }
+    
 }
