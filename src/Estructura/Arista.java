@@ -58,6 +58,12 @@ public class Arista {
     public void setPeso(int peso) {
         this.peso = peso;
     }
+    public String getPesoString(){
+        String p;
+        p = String.valueOf(peso);
+        p = Integer.toString(peso);
+        return p;
+    }
 
     @Override
     public String toString() {

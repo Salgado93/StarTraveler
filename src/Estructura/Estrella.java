@@ -54,7 +54,7 @@ public class Estrella {
 
     @Override
     public String toString() {
-        return "ID=" +id;
+        return "Estrella: " +id;
     }
 
     
