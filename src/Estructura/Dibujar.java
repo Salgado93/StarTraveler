@@ -20,25 +20,34 @@ import org.apache.commons.collections15.Transformer;
  */
 public class Dibujar {
     Grafo grafo = new Grafo();
-    private DirectedSparseGraph dibujo = new DirectedSparseGraph();    
+    private DirectedSparseGraph<String, String> dibujo = new DirectedSparseGraph<String, String>();
     
     public Dibujar() {  
     }
     
     public void dibujarGrafo(Grafo grafo) {
         for (int i = 0; i < grafo.getVertices().size(); i++) {
-            dibujo.addVertex(grafo.getVertices().get(i).getValor());
+            Estrella e = (Estrella)grafo.getVertices().get(i).getValor();
+            dibujo.addVertex(e.toString());
         }
         for (int i = 0; i < grafo.getAristas().size(); i++) {
             Arista a = (Arista)grafo.getAristas().get(i).getValor();
-            dibujo.addEdge(a.getPesoString(), a.getPuntoA(),a.getPuntoB());
+            dibujo.addEdge(a.getPesoString(),a.getPuntoA().toString() , a.getPuntoB().toString());
         }
         
         VisualizationViewer<String, String> vv =
             new VisualizationViewer<String, String>(new CircleLayout<String, String>(dibujo),
             new Dimension(400, 400));
+        
         //Agrega el peso al label de la arista.
         vv.getRenderContext().setEdgeLabelTransformer(new Transformer<String, String>() {
+        @Override
+        public String transform(String arg0) {
+            return arg0;
+        }
+        });
+        //Agrega el id al label del vertice.
+        vv.getRenderContext().setVertexLabelTransformer(new Transformer<String, String>() {
         @Override
         public String transform(String arg0) {
             return arg0;
