@@ -53,6 +53,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jb_visualizarGrafo = new javax.swing.JButton();
+        jb_verRutasCortas = new javax.swing.JButton();
         jmb_menu = new javax.swing.JMenuBar();
         jm_file = new javax.swing.JMenu();
         jmi_ingresarEstrellas = new javax.swing.JMenuItem();
@@ -232,6 +233,13 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jb_verRutasCortas.setText("Ver Rutas Cortas");
+        jb_verRutasCortas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_verRutasCortasActionPerformed(evt);
+            }
+        });
+
         jm_file.setText("File");
 
         jmi_ingresarEstrellas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
@@ -252,16 +260,20 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(141, 141, 141)
+                .addGap(53, 53, 53)
                 .addComponent(jb_visualizarGrafo)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jb_verRutasCortas, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jb_visualizarGrafo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_visualizarGrafo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_verRutasCortas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pack();
@@ -348,6 +360,13 @@ public class Principal extends javax.swing.JFrame {
         jd_agregarEstrellas.setVisible(false);
     }//GEN-LAST:event_jb_salirEstrellasActionPerformed
 
+    private void jb_verRutasCortasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_verRutasCortasActionPerformed
+        // TODO add your handling code here:
+        Dibujar db = new Dibujar();
+        Grafo mst = grafo.algoritmoPrim(adyacencias, grafo);
+        db.dibujarGrafo(mst);
+    }//GEN-LAST:event_jb_verRutasCortasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -392,6 +411,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_agregarAristas;
     private javax.swing.JButton jb_salirAristas;
     private javax.swing.JButton jb_salirEstrellas;
+    private javax.swing.JButton jb_verRutasCortas;
     private javax.swing.JButton jb_visualizarGrafo;
     private javax.swing.JComboBox<String> jc_puntoA;
     private javax.swing.JComboBox<String> jc_puntoB;
@@ -408,6 +428,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_peso;
     // End of variables declaration//GEN-END:variables
     Grafo grafo;
+    int adyacencias[][]= {{0,10,15,31,0},
+                             {10,0,43,7,0},
+                             {15,43,15,0,20},
+                             {31,7,0,0,60},
+                             {0,0,20,60,0}};
 }
 
 
