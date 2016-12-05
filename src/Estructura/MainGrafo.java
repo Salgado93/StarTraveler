@@ -38,7 +38,7 @@ public class MainGrafo {
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(6).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 5));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(5).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 20));
         Pila camino=new Pila();
-        camino=Dijkstra((Estrella) grafo.getVertices().get(0).getValor(),(Estrella) grafo.getVertices().get(7).getValor(), grafo);
+        camino=Dijkstra((Estrella) grafo.getVertices().get(0).getValor(),(Estrella) grafo.getVertices().get(5).getValor(), grafo);
         while(!camino.IsEmpty()){
             System.out.println("["+camino.Desapilar()+"]");
         } 
@@ -249,9 +249,6 @@ public class MainGrafo {
             if (((Arista) grafo.getAristas().get(i).getValor()).getPuntoA().getId() == actual.getId()) {
                 adyacentes.Apilar((Estrella) ((Arista) grafo.getAristas().get(i).getValor()).getPuntoB());
             }
-            /* if (i == actual.getNumAristas()) {
-                break;
-            }*/
         }
         adyacentes.ordenar();
         return adyacentes;

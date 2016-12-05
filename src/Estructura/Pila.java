@@ -55,7 +55,7 @@ public class Pila {
     }
 
     boolean IsEmpty() {
-        if (head == null) {
+        if (head== null) {
             return true;
         } else {
             return false;
