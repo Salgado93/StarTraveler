@@ -772,6 +772,28 @@ public class Principal extends javax.swing.JFrame {
         adyacentes.ordenar();
         return adyacentes;
     }
+    static int[][] MatrizPrim(Estrella origen, Grafo grafo) {
+        int[][] matriz = new int[grafo.getVertices().size()][grafo.getVertices().size()];
+        Pila estrellas = new Pila();
+        for (int i = 0; i < grafo.getVertices().size(); i++) {
+            estrellas.Apilar(((Estrella)grafo.getVertices().get(i).getValor()));
+        }
+        estrellas.ordenar();
+        Estrella actual;
+        for (int i = 0; i < matriz.length; i++) {
+            actual=(Estrella)estrellas.Desapilar();
+            for (int j = 0; j < grafo.getAristas().size(); j++) {
+                if (((Arista)grafo.getAristas().get(j).getValor()).getPuntoA().getId()==actual.getId()) {
+                    matriz[i][((Arista)grafo.getAristas().get(j).getValor()).getPuntoB().getId()-1]=((Arista)grafo.getAristas().get(j).getValor()).getPeso();
+                }
+                if (((Arista)grafo.getAristas().get(j).getValor()).getPuntoB().getId()==actual.getId()) {
+                    matriz[i][((Arista)grafo.getAristas().get(j).getValor()).getPuntoA().getId()-1]=((Arista)grafo.getAristas().get(j).getValor()).getPeso();
+                }
+            }
+            
+        }
+        return matriz;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cb_PDestino;

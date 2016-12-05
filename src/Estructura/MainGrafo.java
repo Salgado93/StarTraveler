@@ -275,26 +275,23 @@ public class MainGrafo {
 
     static int[][] MatrizPrim(Estrella origen, Grafo grafo) {
         int[][] matriz = new int[grafo.getVertices().size()][grafo.getVertices().size()];
-        Estrella actual = origen;
         Pila estrellas = new Pila();
         for (int i = 0; i < grafo.getVertices().size(); i++) {
             estrellas.Apilar(((Estrella)grafo.getVertices().get(i).getValor()));
         }
         estrellas.ordenar();
-        estrellas.listar();
+        Estrella actual;
         for (int i = 0; i < matriz.length; i++) {
+            actual=(Estrella)estrellas.Desapilar();
             for (int j = 0; j < grafo.getAristas().size(); j++) {
-                if (((Arista)grafo.getAristas().get(j).getValor()).getPuntoA().getId()==actual.getId()||((Arista)grafo.getAristas().get(j).getValor()).getPuntoB().getId()==actual.getId()) {
+                if (((Arista)grafo.getAristas().get(j).getValor()).getPuntoA().getId()==actual.getId()) {
                     matriz[i][((Arista)grafo.getAristas().get(j).getValor()).getPuntoB().getId()-1]=((Arista)grafo.getAristas().get(j).getValor()).getPeso();
                 }
+                if (((Arista)grafo.getAristas().get(j).getValor()).getPuntoB().getId()==actual.getId()) {
+                    matriz[i][((Arista)grafo.getAristas().get(j).getValor()).getPuntoA().getId()-1]=((Arista)grafo.getAristas().get(j).getValor()).getPeso();
+                }
             }
-            actual=(Estrella)estrellas.Desapilar();
-        }
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print("["+matriz[i][j]+"]");
-            }
-            System.out.println("");
+            
         }
         return matriz;
     }
