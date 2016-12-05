@@ -39,6 +39,30 @@ public class Lista {
         }
         return tem;
     }
+    public boolean isEmpty(){
+        if (head==null) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public void Eliminar(int posicion){
+        if (!this.isEmpty()) {
+            if (posicion==0) {
+                head=head.getNext();
+            }else{
+                int iter=0;
+                Nodo temp=head;
+                while(iter<posicion-1){
+                    temp=temp.getNext();
+                    iter++;
+                }
+                Nodo tem=temp.getNext();
+                temp.setNext(tem.getNext());
+            }
+        }
+       
+    }
     public int size(){
         Nodo tem=head;
         int salida=0;
@@ -48,4 +72,5 @@ public class Lista {
         }
         return salida;
     }
+    
 }

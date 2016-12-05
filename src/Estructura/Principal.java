@@ -52,6 +52,18 @@ public class Principal extends javax.swing.JFrame {
         jb_salirAristas = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jDialog1 = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        cb_POrigen = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        cb_PDestino = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        lb_tiempo = new javax.swing.JLabel();
         jb_visualizarGrafo = new javax.swing.JButton();
         jb_verRutasCortas = new javax.swing.JButton();
         jmb_menu = new javax.swing.JMenuBar();
@@ -222,6 +234,108 @@ public class Principal extends javax.swing.JFrame {
 
         jd_agregarAristasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, tf_peso});
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 395, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 142, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Agregar", jPanel1);
+
+        jPanel2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel2ComponentShown(evt);
+            }
+        });
+
+        jLabel4.setText("Punto de origen");
+
+        cb_POrigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_POrigenActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Destino");
+
+        jButton1.setText("Encontrar el camino mas corto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("jButton2");
+
+        jLabel6.setText("Tiempo de llegada");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cb_POrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cb_PDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lb_tiempo))
+                            .addComponent(jButton2))))
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(cb_POrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cb_PDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(lb_tiempo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(20, 20, 20))
+        );
+
+        jTabbedPane1.addTab("Ejercicio", jPanel2);
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Star Traveler");
 
@@ -367,6 +481,51 @@ public class Principal extends javax.swing.JFrame {
         db.dibujarGrafo(mst);
     }//GEN-LAST:event_jb_verRutasCortasActionPerformed
 
+    private void jPanel2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel2ComponentShown
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo=new DefaultComboBoxModel();
+        for (int i = 0; i < grafo.getVertices().size(); i++) {
+            modelo.addElement((Estrella)grafo.getVertices().get(i).getValor());
+        }
+        this.cb_POrigen.setModel(modelo);
+    }//GEN-LAST:event_jPanel2ComponentShown
+
+    private void cb_POrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_POrigenActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo=new DefaultComboBoxModel();
+        for (int i = 0; i < grafo.getVertices().size(); i++) {
+            if ((Estrella)grafo.getVertices().get(i).getValor()!=(Estrella)this.cb_POrigen.getSelectedItem()) {
+                modelo.addElement((Estrella)grafo.getVertices().get(i).getValor());
+            }
+        }
+        this.cb_PDestino.setModel(modelo);
+    }//GEN-LAST:event_cb_POrigenActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Lista camino=Dijkstra((Estrella)this.cb_POrigen.getSelectedItem(),(Estrella)this.cb_PDestino.getSelectedItem(),grafo);
+        Arista temporal;
+        for (int i = 0; i < camino.size(); i++) {
+            for (int j = 0; j < camino.size()-1; j++) {
+                if (((Arista)camino.get(j).getValor()).getPeso()<((Arista)camino.get(j+1).getValor()).getPeso()) {
+                    temporal=((Arista)camino.get(j).getValor());
+                    camino.get(j).setValor(((Arista)camino.get(j+1).getValor()));
+                    camino.get(j+1).setValor(temporal);
+                }
+            }
+        }
+        int tiempo=0;
+        for (int i = 0; i < camino.size(); i++) {
+            if (i>2) {
+                tiempo+=((Arista)camino.get(i).getValor()).getPeso();
+                ((Arista)camino.get(i).getValor()).setColor(Color.blue);
+            }else{
+                ((Arista)camino.get(i).getValor()).setColor(Color.YELLOW);
+            }
+        }
+        this.lb_tiempo.setText(tiempo+"");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -401,8 +560,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
-    static Pila Dijkstra(Estrella origen,Estrella destino, Grafo grafo) {
-        Pila camino=new Pila();
+    static Lista Dijkstra(Estrella origen,Estrella destino, Grafo grafo) {
+        Lista camino=new Lista();
         
         int[][] matriz = new int[grafo.getVertices().size()][grafo.getVertices().size()];
         for (int i = 0; i < matriz.length; i++) {
@@ -528,12 +687,12 @@ public class Principal extends javax.swing.JFrame {
         }
         return peso;
     }
-    static Pila Camino(Estrella puntoA, Estrella puntoB, Grafo grafo, Estrella origen) {
-        Pila aristas=new Pila();
+    static Lista Camino(Estrella puntoA, Estrella puntoB, Grafo grafo, Estrella origen) {
+        Lista aristas=new Lista();
         for (int i = 0; i < grafo.getAristas().size(); i++) {
             if (((Arista) grafo.getAristas().get(i).getValor()).getPuntoA() == puntoA
                     && ((Arista) grafo.getAristas().get(i).getValor()).getPuntoB() == puntoB && ((Arista) grafo.getAristas().get(i).getValor()).getPuntoA() == origen) {
-                aristas.Apilar((Arista)grafo.getAristas().get(i).getValor());
+                aristas.insert(new Nodo(null,(Arista)grafo.getAristas().get(i).getValor()));
             } else if ((((Arista) grafo.getAristas().get(i).getValor()).getPuntoA() == puntoA
                     && ((Arista) grafo.getAristas().get(i).getValor()).getPuntoB() == puntoB)) {
                 Estrella anterior = origen;
@@ -560,7 +719,7 @@ public class Principal extends javax.swing.JFrame {
                 } while (noEncontrado);
                 for (int j = 0; j < grafo.getAristas().size(); j++) {
                     if (((Arista) grafo.getAristas().get(j).getValor()).getPuntoA() == anterior && ((Arista) grafo.getAristas().get(j).getValor()).getPuntoB() == puntoA) {
-                        aristas.Apilar((Arista)grafo.getAristas().get(j).getValor());
+                        aristas.insert(new Nodo(null,(Arista)grafo.getAristas().get(j).getValor()));
                     }
                 }
                 Estrella temPuntoA = origen;
@@ -590,13 +749,13 @@ public class Principal extends javax.swing.JFrame {
                         } while (noEncontrado);
                         for (int j = 0; j < grafo.getAristas().size(); j++) {
                             if (((Arista) grafo.getAristas().get(j).getValor()).getPuntoA() == temPuntoA && ((Arista) grafo.getAristas().get(j).getValor()).getPuntoB() == anterior) {
-                                aristas.Apilar((Arista)grafo.getAristas().get(j).getValor());
+                                aristas.insert(new Nodo(null,(Arista)grafo.getAristas().get(j).getValor()));
                             }
                         }
                         anterior = temPuntoA;
                     } while (temPuntoA.getId() != origen.getId());
                 }
-                aristas.Apilar((Arista)grafo.getAristas().get(i).getValor());
+                aristas.insert(new Nodo(null,(Arista)grafo.getAristas().get(i).getValor()));
             }
         }
         return aristas;
@@ -615,9 +774,20 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb_PDestino;
+    private javax.swing.JComboBox<String> cb_POrigen;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_agregar;
     private javax.swing.JButton jb_agregarArista;
     private javax.swing.JButton jb_agregarAristas;
@@ -636,6 +806,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jm_file;
     private javax.swing.JMenuBar jmb_menu;
     private javax.swing.JMenuItem jmi_ingresarEstrellas;
+    private javax.swing.JLabel lb_tiempo;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_peso;
     // End of variables declaration//GEN-END:variables
