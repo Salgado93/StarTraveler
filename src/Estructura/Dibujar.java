@@ -37,7 +37,7 @@ public class Dibujar {
         
         VisualizationViewer<String, String> vv =
             new VisualizationViewer<String, String>(new CircleLayout<String, String>(dibujo),
-            new Dimension(400, 400));
+            new Dimension(800, 600));
         
         //Agrega el peso al label de la arista.
         vv.getRenderContext().setEdgeLabelTransformer(new Transformer<String, String>() {

@@ -35,19 +35,7 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_agregarEstrellas = new javax.swing.JDialog();
-        jd_agregarAristas = new javax.swing.JDialog();
-        jl_punto1 = new javax.swing.JLabel();
-        jl_punto2 = new javax.swing.JLabel();
-        jl_flecha = new javax.swing.JLabel();
-        jc_puntoA = new javax.swing.JComboBox<>();
-        jc_puntoB = new javax.swing.JComboBox<>();
-        jb_agregarArista = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        tf_peso = new javax.swing.JTextField();
-        jb_salirAristas = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jDialog1 = new javax.swing.JDialog();
+        jd_principal = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -55,31 +43,28 @@ public class Principal extends javax.swing.JFrame {
         jl_nombre = new javax.swing.JLabel();
         tf_nombre = new javax.swing.JTextField();
         jb_agregar = new javax.swing.JButton();
-        jb_agregarAristas = new javax.swing.JButton();
         jb_salirEstrellas = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jl_punto3 = new javax.swing.JLabel();
+        jl_puntoA = new javax.swing.JLabel();
         jl_flecha1 = new javax.swing.JLabel();
-        jl_punto4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jc_puntoB1 = new javax.swing.JComboBox<>();
+        jl_puntoB = new javax.swing.JLabel();
+        jl_estrellasA = new javax.swing.JLabel();
+        jl_estrellasB = new javax.swing.JLabel();
+        jc_puntoB = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        tf_peso1 = new javax.swing.JTextField();
-        jb_agregarArista1 = new javax.swing.JButton();
-        jb_salirAristas1 = new javax.swing.JButton();
-        jc_puntoA1 = new javax.swing.JComboBox<>();
+        tf_peso = new javax.swing.JTextField();
+        jb_agregarArista = new javax.swing.JButton();
+        jc_puntoA = new javax.swing.JComboBox<>();
+        jb_actualizarEstrellas = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cb_POrigen = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         cb_PDestino = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jb_prim = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         lb_tiempo = new javax.swing.JLabel();
-        jb_visualizarGrafo = new javax.swing.JButton();
-        jb_verRutasCortas = new javax.swing.JButton();
         jmb_menu = new javax.swing.JMenuBar();
         jm_file = new javax.swing.JMenu();
         jmi_ingresarEstrellas = new javax.swing.JMenuItem();
@@ -97,105 +82,6 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        jl_punto1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jl_punto1.setText("Punto A");
-
-        jl_punto2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jl_punto2.setText("Punto B");
-
-        jl_flecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jl_flecha.setText("--->");
-
-        jb_agregarArista.setText("Agregar Arista");
-        jb_agregarArista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_agregarAristaActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Peso");
-
-        jb_salirAristas.setText("Salir");
-        jb_salirAristas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_salirAristasActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Estrellas");
-
-        jLabel3.setText("Estrellas");
-
-        javax.swing.GroupLayout jd_agregarAristasLayout = new javax.swing.GroupLayout(jd_agregarAristas.getContentPane());
-        jd_agregarAristas.getContentPane().setLayout(jd_agregarAristasLayout);
-        jd_agregarAristasLayout.setHorizontalGroup(
-            jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_agregarAristasLayout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jb_salirAristas, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_agregarArista))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jd_agregarAristasLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_agregarAristasLayout.createSequentialGroup()
-                        .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jd_agregarAristasLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tf_peso))
-                            .addComponent(jc_puntoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jd_agregarAristasLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jl_punto1)))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(jl_flecha, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_agregarAristasLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jc_puntoB, 0, 90, Short.MAX_VALUE)
-                    .addGroup(jd_agregarAristasLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jl_punto2))
-                    .addComponent(jLabel3))
-                .addGap(75, 75, 75))
-        );
-
-        jd_agregarAristasLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jc_puntoA, jc_puntoB});
-
-        jd_agregarAristasLayout.setVerticalGroup(
-            jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_agregarAristasLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_punto1)
-                    .addComponent(jl_punto2)
-                    .addComponent(jl_flecha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jc_puntoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jc_puntoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jd_agregarAristasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(tf_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(jb_agregarArista)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jb_salirAristas)
-                .addGap(19, 19, 19))
-        );
-
-        jd_agregarAristasLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, tf_peso});
-
         jl_nombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jl_nombre.setText("Nombre Estrella: ");
 
@@ -205,13 +91,6 @@ public class Principal extends javax.swing.JFrame {
         jb_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_agregarActionPerformed(evt);
-            }
-        });
-
-        jb_agregarAristas.setText("Agregar Aristas");
-        jb_agregarAristas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_agregarAristasActionPerformed(evt);
             }
         });
 
@@ -233,10 +112,8 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jb_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jb_salirEstrellas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_agregarAristas))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,9 +123,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jl_nombre))
                 .addGap(60, 60, 60)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_agregar)
-                    .addComponent(jb_agregarAristas))
+                .addComponent(jb_agregar)
                 .addGap(37, 37, 37)
                 .addComponent(jb_salirEstrellas)
                 .addContainerGap(63, Short.MAX_VALUE))
@@ -256,33 +131,33 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Agregar Estrellas", jPanel3);
 
-        jl_punto3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jl_punto3.setText("Punto A");
+        jl_puntoA.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_puntoA.setText("Punto A");
 
         jl_flecha1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jl_flecha1.setText("--->");
 
-        jl_punto4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jl_punto4.setText("Punto B");
+        jl_puntoB.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jl_puntoB.setText("Punto B");
 
-        jLabel7.setText("Estrellas");
+        jl_estrellasA.setText("Estrellas");
 
-        jLabel8.setText("Estrellas");
+        jl_estrellasB.setText("Estrellas");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Peso");
 
-        jb_agregarArista1.setText("Agregar Arista");
-        jb_agregarArista1.addActionListener(new java.awt.event.ActionListener() {
+        jb_agregarArista.setText("Agregar Arista");
+        jb_agregarArista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_agregarArista1ActionPerformed(evt);
+                jb_agregarAristaActionPerformed(evt);
             }
         });
 
-        jb_salirAristas1.setText("Salir");
-        jb_salirAristas1.addActionListener(new java.awt.event.ActionListener() {
+        jb_actualizarEstrellas.setText("Actualizar Estrellas");
+        jb_actualizarEstrellas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_salirAristas1ActionPerformed(evt);
+                jb_actualizarEstrellasActionPerformed(evt);
             }
         });
 
@@ -291,63 +166,65 @@ public class Principal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jb_salirAristas1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_agregarArista1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_estrellasA)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tf_peso1))
-                            .addComponent(jc_puntoA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tf_peso, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jc_puntoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addComponent(jl_puntoA)))
+                                .addGap(43, 43, 43)
+                                .addComponent(jl_flecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jc_puntoB, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addComponent(jl_punto3)))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(jl_flecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jl_puntoB))
+                            .addComponent(jl_estrellasB))
+                        .addGap(75, 75, 75))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jc_puntoB1, 0, 110, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jl_punto4))
-                    .addComponent(jLabel8))
-                .addGap(75, 75, 75))
+                        .addComponent(jb_agregarArista, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_actualizarEstrellas)
+                        .addGap(62, 62, 62))))
         );
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jc_puntoA, jc_puntoB});
+
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_punto3)
-                    .addComponent(jl_punto4)
+                    .addComponent(jl_puntoA)
+                    .addComponent(jl_puntoB)
                     .addComponent(jl_flecha1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jl_estrellasA)
+                    .addComponent(jl_estrellasB, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jc_puntoB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jc_puntoA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jc_puntoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jc_puntoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(tf_peso1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(jb_agregarArista1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jb_salirAristas1)
-                .addGap(19, 19, 19))
+                    .addComponent(tf_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_agregarArista)
+                    .addComponent(jb_actualizarEstrellas))
+                .addGap(53, 53, 53))
         );
 
         jTabbedPane2.addTab("Agregar Aristas", jPanel4);
@@ -381,14 +258,19 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel5.setText("Destino");
 
-        jButton1.setText("Encontrar el camino mas corto");
+        jButton1.setText("Encontrar El Camino Mas Corto");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("jButton2");
+        jb_prim.setText("Ver Rutas Cortas");
+        jb_prim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_primActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Tiempo de llegada");
 
@@ -400,27 +282,29 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cb_POrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(44, 44, 44)
-                                .addComponent(cb_PDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jb_prim))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(cb_PDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(135, 135, 135)
                                 .addComponent(lb_tiempo))
-                            .addComponent(jButton2))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                            .addComponent(cb_POrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, Short.MAX_VALUE))))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cb_PDestino, cb_POrigen});
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jb_prim});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,43 +319,30 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(cb_PDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(lb_tiempo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(20, 20, 20))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jb_prim)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ejercicio", jPanel2);
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jd_principalLayout = new javax.swing.GroupLayout(jd_principal.getContentPane());
+        jd_principal.getContentPane().setLayout(jd_principalLayout);
+        jd_principalLayout.setHorizontalGroup(
+            jd_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jd_principalLayout.setVerticalGroup(
+            jd_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_principalLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Star Traveler");
-
-        jb_visualizarGrafo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jb_visualizarGrafo.setText("Visualizar Estrellas");
-        jb_visualizarGrafo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_visualizarGrafoActionPerformed(evt);
-            }
-        });
-
-        jb_verRutasCortas.setText("Ver Rutas Cortas");
-        jb_verRutasCortas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_verRutasCortasActionPerformed(evt);
-            }
-        });
 
         jm_file.setText("File");
 
@@ -492,21 +363,11 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jb_visualizarGrafo)
-                .addGap(27, 27, 27)
-                .addComponent(jb_verRutasCortas, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_visualizarGrafo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_verRutasCortas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         pack();
@@ -514,49 +375,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void jmi_ingresarEstrellasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ingresarEstrellasActionPerformed
         // TODO add your handling code here:
-        jd_agregarEstrellas.setModal(true);
-        jd_agregarEstrellas.pack();
-        jd_agregarEstrellas.setLocationRelativeTo(this);
-        jd_agregarEstrellas.setVisible(true);
+        jd_principal.setModal(true);
+        jd_principal.pack();
+        jd_principal.setLocationRelativeTo(this);
+        jd_principal.setVisible(true);
     }//GEN-LAST:event_jmi_ingresarEstrellasActionPerformed
-
-    private void jb_agregarAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarAristaActionPerformed
-        // TODO add your handling code here:
-        try {
-            Estrella puntoA = (Estrella)jc_puntoA.getSelectedItem();
-            Estrella puntoB = (Estrella) jc_puntoB.getSelectedItem();
-            int peso = Integer.parseInt(tf_peso.getText());
-            Arista arista = new Arista(Color.BLACK,puntoA,puntoB,peso);
-            grafo.AddArista(arista);
-            System.out.println("Arista Agregada: " +arista);
-            tf_peso.setText("");
-            JOptionPane.showMessageDialog(null, "Arista Agregada");
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_jb_agregarAristaActionPerformed
-
-    private void jb_visualizarGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_visualizarGrafoActionPerformed
-        // TODO add your handling code here:
-        try {
-            Dibujar dibujar = new Dibujar();
-            dibujar.dibujarGrafo(grafo);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_jb_visualizarGrafoActionPerformed
-
-    private void jb_salirAristasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_salirAristasActionPerformed
-        // TODO add your handling code here:
-        jd_agregarAristas.setVisible(false);
-    }//GEN-LAST:event_jb_salirAristasActionPerformed
-
-    private void jb_verRutasCortasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_verRutasCortasActionPerformed
-        // TODO add your handling code here:
-        Dibujar db = new Dibujar();
-        Grafo mst = grafo.algoritmoPrim(adyacencias, grafo);
-        db.dibujarGrafo(mst);
-    }//GEN-LAST:event_jb_verRutasCortasActionPerformed
 
     private void jPanel2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel2ComponentShown
         // TODO add your handling code here:
@@ -603,7 +426,7 @@ public class Principal extends javax.swing.JFrame {
         this.cb_PDestino.setModel(modelo);
     }//GEN-LAST:event_cb_POrigenActionPerformed
 
-    private void jb_agregarArista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarArista1ActionPerformed
+    private void jb_agregarAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarAristaActionPerformed
         // TODO add your handling code here:
         try {
             Estrella puntoA = (Estrella)jc_puntoA.getSelectedItem();
@@ -617,12 +440,7 @@ public class Principal extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }//GEN-LAST:event_jb_agregarArista1ActionPerformed
-
-    private void jb_salirAristas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_salirAristas1ActionPerformed
-        // TODO add your handling code here:
-        jd_agregarAristas.setVisible(false);
-    }//GEN-LAST:event_jb_salirAristas1ActionPerformed
+    }//GEN-LAST:event_jb_agregarAristaActionPerformed
 
     private void jb_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarActionPerformed
         // TODO add your handling code here:
@@ -638,32 +456,32 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_agregarActionPerformed
 
-    private void jb_agregarAristasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_agregarAristasActionPerformed
-        // TODO add your handling code here:
-        try {
-            jc_puntoA.removeAllItems();
-            jc_puntoA.removeAllItems();
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-            DefaultComboBoxModel model2 = new DefaultComboBoxModel();
-            for (int i = 0; i < grafo.getVertices().size(); i++) {
-                model.addElement((Estrella)grafo.getVertices().get(i).getValor());
-                model2.addElement((Estrella)grafo.getVertices().get(i).getValor());
-            }
-            jc_puntoA.setModel(model);
-            jc_puntoB.setModel(model2);
-            jd_agregarAristas.setModal(true);
-            jd_agregarAristas.pack();
-            jd_agregarAristas.setLocationRelativeTo(this);
-            jd_agregarAristas.setVisible(true);
-        } catch (Exception e) {
-        }
-
-    }//GEN-LAST:event_jb_agregarAristasActionPerformed
-
     private void jb_salirEstrellasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_salirEstrellasActionPerformed
         // TODO add your handling code here:
-        jd_agregarEstrellas.setVisible(false);
+        jd_principal.setVisible(false);
     }//GEN-LAST:event_jb_salirEstrellasActionPerformed
+
+    private void jb_primActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_primActionPerformed
+        // TODO add your handling code here:
+        int[][] adyacencias = MatrizPrim((Estrella)grafo.getVertices().get(0).getValor(), grafo);
+        Grafo mst = grafo.algoritmoPrim(adyacencias,grafo);
+        Dibujar db = new Dibujar();
+        db.dibujarGrafo(mst);
+    }//GEN-LAST:event_jb_primActionPerformed
+
+    private void jb_actualizarEstrellasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_actualizarEstrellasActionPerformed
+        // TODO add your handling code here:
+        jc_puntoA.removeAllItems();
+        jc_puntoA.removeAllItems();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel model2 = new DefaultComboBoxModel();
+        for (int i = 0; i < grafo.getVertices().size(); i++) {
+                model.addElement((Estrella)grafo.getVertices().get(i).getValor());
+                model2.addElement((Estrella)grafo.getVertices().get(i).getValor());
+        }
+        jc_puntoA.setModel(model);
+        jc_puntoB.setModel(model2);
+    }//GEN-LAST:event_jb_actualizarEstrellasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -938,16 +756,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_PDestino;
     private javax.swing.JComboBox<String> cb_POrigen;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -955,42 +766,29 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JButton jb_actualizarEstrellas;
     private javax.swing.JButton jb_agregar;
     private javax.swing.JButton jb_agregarArista;
-    private javax.swing.JButton jb_agregarArista1;
-    private javax.swing.JButton jb_agregarAristas;
-    private javax.swing.JButton jb_salirAristas;
-    private javax.swing.JButton jb_salirAristas1;
+    private javax.swing.JButton jb_prim;
     private javax.swing.JButton jb_salirEstrellas;
-    private javax.swing.JButton jb_verRutasCortas;
-    private javax.swing.JButton jb_visualizarGrafo;
     private javax.swing.JComboBox<String> jc_puntoA;
-    private javax.swing.JComboBox<String> jc_puntoA1;
     private javax.swing.JComboBox<String> jc_puntoB;
-    private javax.swing.JComboBox<String> jc_puntoB1;
-    private javax.swing.JDialog jd_agregarAristas;
     private javax.swing.JDialog jd_agregarEstrellas;
-    private javax.swing.JLabel jl_flecha;
+    private javax.swing.JDialog jd_principal;
+    private javax.swing.JLabel jl_estrellasA;
+    private javax.swing.JLabel jl_estrellasB;
     private javax.swing.JLabel jl_flecha1;
     private javax.swing.JLabel jl_nombre;
-    private javax.swing.JLabel jl_punto1;
-    private javax.swing.JLabel jl_punto2;
-    private javax.swing.JLabel jl_punto3;
-    private javax.swing.JLabel jl_punto4;
+    private javax.swing.JLabel jl_puntoA;
+    private javax.swing.JLabel jl_puntoB;
     private javax.swing.JMenu jm_file;
     private javax.swing.JMenuBar jmb_menu;
     private javax.swing.JMenuItem jmi_ingresarEstrellas;
     private javax.swing.JLabel lb_tiempo;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_peso;
-    private javax.swing.JTextField tf_peso1;
     // End of variables declaration//GEN-END:variables
     Grafo grafo;
-    int adyacencias[][]= {{0,10,15,31,0},
-                             {10,0,43,7,0},
-                             {15,43,15,0,20},
-                             {31,7,0,0,60},
-                             {0,0,20,60,0}};
 }
 
 

@@ -85,12 +85,12 @@ public class Grafo {
             total += min;
             adyacencias[u][v] = adyacencias[u][v] = 999; 
             System.out.println("Ruta : "+(u+1)+" -> "+(v+1)+" : "+min);
-            String nombre1 = String.valueOf(u);
-            nombre1 = Integer.toString(u);
-            String nombre2 = String.valueOf(v);
-            nombre2 = Integer.toString(v);
-            Estrella e1 = new Estrella(u,nombre1);
-            Estrella e2 = new Estrella(v,nombre2);
+            String nombre1 = String.valueOf(u+1);
+            nombre1 = Integer.toString(u+1);
+            String nombre2 = String.valueOf(v+1);
+            nombre2 = Integer.toString(v+1);
+            Estrella e1 = new Estrella(u+1,nombre1);
+            Estrella e2 = new Estrella(v+1,nombre2);
             arbol.AddArista(new Arista(Color.BLACK,e1,e2,min));
         }
         System.out.println("El Peso Todal Es: "+ total);

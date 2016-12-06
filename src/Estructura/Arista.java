@@ -67,7 +67,7 @@ public class Arista {
 
     @Override
     public String toString() {
-        return puntoA+"-->"+puntoB;
+        return puntoA+"-->"+puntoB+" Peso: "+peso;
     }
     
     
