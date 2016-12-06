@@ -5,8 +5,6 @@
  */
 package Estructura;
 
-import static Estructura.MainGrafo.Adyacentes;
-import edu.uci.ics.jung.visualization.VisualizationViewer;
 import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -24,7 +22,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         grafo = new Grafo();
-         grafo.AddVertice(new Estrella(1, "Estrella1"));
+        grafo.AddVertice(new Estrella(1, "Estrella1"));
         grafo.AddVertice(new Estrella(2, "Estrella2"));
         grafo.AddVertice(new Estrella(3, "Estrella3"));
         grafo.AddVertice(new Estrella(4, "Estrella4"));
@@ -46,7 +44,7 @@ public class Principal extends javax.swing.JFrame {
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(5).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 20));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(7).getValor(), (Estrella) grafo.getVertices().get(8).getValor(), 36));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(8).getValor(), (Estrella) grafo.getVertices().get(0).getValor(), 37));
-
+        
     }
 
     /**
@@ -339,11 +337,12 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(cb_POrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(cb_PDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(cb_PDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)))
                 .addGap(18, 18, 18)
                 .addComponent(jb_caminosMinimos)
                 .addGap(18, 18, 18)
