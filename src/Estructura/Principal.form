@@ -346,13 +346,13 @@
                                               <Component id="jb_visualizarGrafo" linkSize="7" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lb_tiempo" min="-2" pref="36" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="128" pref="45" max="32767" attributes="0"/>
+                                  <EmptySpace min="186" pref="103" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -371,7 +371,7 @@
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cb_PDestino" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lb_tiempo" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="lb_tiempo" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jb_caminosMinimos" min="-2" max="-2" attributes="0"/>
@@ -380,7 +380,7 @@
                               <Component id="jb_prim" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jb_visualizarGrafo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="148" max="32767" attributes="0"/>
+                          <EmptySpace pref="76" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

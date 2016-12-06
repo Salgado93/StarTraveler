@@ -5,6 +5,8 @@
  */
 package Estructura;
 
+import static Estructura.MainGrafo.Adyacentes;
+import edu.uci.ics.jung.visualization.VisualizationViewer;
 import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -22,7 +24,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         grafo = new Grafo();
-        /*grafo.AddVertice(new Estrella(1, "Estrella1"));
+         grafo.AddVertice(new Estrella(1, "Estrella1"));
         grafo.AddVertice(new Estrella(2, "Estrella2"));
         grafo.AddVertice(new Estrella(3, "Estrella3"));
         grafo.AddVertice(new Estrella(4, "Estrella4"));
@@ -30,17 +32,21 @@ public class Principal extends javax.swing.JFrame {
         grafo.AddVertice(new Estrella(6, "Estrella6"));
         grafo.AddVertice(new Estrella(7, "Estrella7"));
         grafo.AddVertice(new Estrella(8, "Estrella8"));
+        grafo.AddVertice(new Estrella(9, "Estrella8"));
+        
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(0).getValor(), (Estrella) grafo.getVertices().get(1).getValor(), 10));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(1).getValor(), (Estrella) grafo.getVertices().get(2).getValor(), 6));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(0).getValor(), (Estrella) grafo.getVertices().get(2).getValor(), 3));
-        grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(1).getValor(), (Estrella) grafo.getVertices().get(3).getValor(), 1));
+        grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(1).getValor(), (Estrella) grafo.getVertices().get(3).getValor(), 0));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(3).getValor(), (Estrella) grafo.getVertices().get(4).getValor(), 2));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(4).getValor(), (Estrella) grafo.getVertices().get(5).getValor(), 100));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(2).getValor(), (Estrella) grafo.getVertices().get(4).getValor(), 4));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(2).getValor(), (Estrella) grafo.getVertices().get(6).getValor(), 7));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(6).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 5));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(5).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 20));
-        */
+        grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(7).getValor(), (Estrella) grafo.getVertices().get(8).getValor(), 36));
+        grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(8).getValor(), (Estrella) grafo.getVertices().get(0).getValor(), 37));
+
     }
 
     /**
@@ -316,9 +322,9 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(jb_visualizarGrafo)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
-                                        .addGap(99, 99, 99)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lb_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(45, 45, Short.MAX_VALUE))))
+                        .addGap(103, 103, Short.MAX_VALUE))))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cb_PDestino, cb_POrigen});
@@ -344,7 +350,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_prim)
                     .addComponent(jb_visualizarGrafo))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ejercicio", jPanel2);
@@ -416,6 +422,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_caminosMinimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_caminosMinimosActionPerformed
         // TODO add your handling code here:
+        for (int i = 0; i < grafo.getAristas().size(); i++) {
+            ((Arista)grafo.getAristas().get(i).getValor()).setColor(Color.black);
+        }
         Lista camino=Dijkstra((Estrella)this.cb_POrigen.getSelectedItem(),(Estrella)this.cb_PDestino.getSelectedItem(),grafo);
         Arista temporal;
         for (int i = 0; i < camino.size(); i++) {
@@ -436,9 +445,24 @@ public class Principal extends javax.swing.JFrame {
                 ((Arista)camino.get(i).getValor()).setColor(Color.RED);
             }
         }
+        
+        int con=camino.size()-1;
+        for (int i = 0; i < grafo.getAristas().size(); i++) {
+            if (con>=0) {
+                if (((Arista)camino.get(con).getValor()).getPeso()==((Arista)grafo.getAristas().get(i).getValor()).getPeso()) {
+                grafo.getAristas().get(i).setValor((Arista)camino.get(con).getValor());
+                con--;
+                i=0;
+            }
+            }
+        }
+        for (int i = 0; i < grafo.getAristas().size(); i++) {
+            System.out.println(((Arista)grafo.getAristas().get(i).getValor()).getColor().toString());
+        }
         this.lb_tiempo.setText(tiempo+"");
         Dibujar db = new Dibujar();
         db.dibujarCamino(grafo);
+        
     }//GEN-LAST:event_jb_caminosMinimosActionPerformed
 
     private void cb_POrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_POrigenActionPerformed
@@ -551,7 +575,7 @@ public class Principal extends javax.swing.JFrame {
     }
     static Lista Dijkstra(Estrella origen,Estrella destino, Grafo grafo) {
         Lista camino=new Lista();
-        int[][] matriz = new int[grafo.getVertices().size()][grafo.getVertices().size()];
+        int[][] matriz = new int[grafo.getAristas().size()][grafo.getVertices().size()];
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 matriz[i][j] = Integer.MAX_VALUE;
@@ -560,7 +584,9 @@ public class Principal extends javax.swing.JFrame {
         Pila adyacentes = new Pila();
         Cola adyacentes3 = new Cola();
         Estrella actual = origen;
-        for (int i = 0; i < grafo.getVertices().size(); i++) {
+        int i = 0;
+        do {
+            System.out.println(actual);
             adyacentes = Adyacentes(actual, grafo, adyacentes);
             while (!adyacentes.IsEmpty()) {
                 Estrella temporal = (Estrella) adyacentes.Desapilar();
@@ -569,16 +595,16 @@ public class Principal extends javax.swing.JFrame {
                 if (i > 0) {
                     if (peso < matriz[i - 1][temporal.getId() - 1]) {
                         matriz[i][temporal.getId() - 1] = Peso(actual, temporal, grafo, origen);
-                        if (temporal.getId()==destino.getId()) {//----------------->aqui
-                            camino=Camino(actual,temporal,grafo,origen);
+                        if (temporal.getId() == destino.getId()) {//----------------->aqui
+                            camino = Camino(actual, temporal, grafo, origen);
                         }
                     } else {
                         matriz[i][temporal.getId() - 1] = matriz[i - 1][temporal.getId() - 1];
                     }
                 } else {
                     matriz[i][temporal.getId() - 1] = Peso(actual, temporal, grafo, origen);
-                    if (temporal.getId()==destino.getId()) {//----------------->aqui
-                            camino=Camino(actual,temporal,grafo,origen);
+                    if (temporal.getId() == destino.getId()) {//----------------->aqui
+                        camino = Camino(actual, temporal, grafo, origen);
                     }
                 }
 
@@ -586,20 +612,27 @@ public class Principal extends javax.swing.JFrame {
             if (!adyacentes3.isEmpty()) {
                 actual = (Estrella) adyacentes3.Dequeue();
             }
+            i++;
+            if (i == grafo.getAristas().size()) {
+                break;
+            }
+        } while (!adyacentes3.isEmpty());
 
-        }
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                if (i > 0) {
-                    if (matriz[i - 1][j] < matriz[i][j]) {
-                        matriz[i][j] = matriz[i - 1][j];
+        for (int j = 0; j < matriz.length; j++) {
+            for (int k = 0; k < matriz[0].length; k++) {
+                if (k > 0) {
+                    if (matriz[k - 1][k] < matriz[k][k]) {
+                        matriz[k][k] = matriz[k - 1][k];
                     }
                 }
-                System.out.print("[" + matriz[i][j] + "]");
+                System.out.print("[" + matriz[k][k] + "]");
             }
             System.out.println("");
         }
-          
+         for (int j = 0; j < camino.size(); j++) {
+             System.out.println(camino);
+        }
+ 
         return camino;
     }
     static int Peso(Estrella puntoA, Estrella puntoB, Grafo grafo, Estrella origen) {
@@ -782,6 +815,7 @@ public class Principal extends javax.swing.JFrame {
         }
         return matriz;
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cb_PDestino;
