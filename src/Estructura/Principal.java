@@ -22,7 +22,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         grafo = new Grafo();
-        grafo.AddVertice(new Estrella(1, "Estrella1"));
+        /*grafo.AddVertice(new Estrella(1, "Estrella1"));
         grafo.AddVertice(new Estrella(2, "Estrella2"));
         grafo.AddVertice(new Estrella(3, "Estrella3"));
         grafo.AddVertice(new Estrella(4, "Estrella4"));
@@ -40,7 +40,7 @@ public class Principal extends javax.swing.JFrame {
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(2).getValor(), (Estrella) grafo.getVertices().get(6).getValor(), 7));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(6).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 5));
         grafo.AddArista(new Arista(Color.BLACK, (Estrella) grafo.getVertices().get(5).getValor(), (Estrella) grafo.getVertices().get(7).getValor(), 20));
-        
+        */
     }
 
     /**
@@ -490,7 +490,7 @@ public class Principal extends javax.swing.JFrame {
     private void jb_primActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_primActionPerformed
         // TODO add your handling code here:
         int[][] adyacencias = MatrizPrim((Estrella)grafo.getVertices().get(0).getValor(), grafo);
-        Grafo mst = grafo.algoritmoPrim(adyacencias,grafo);
+        Grafo mst = grafo.algoritmoPrim(adyacencias,grafo, (Estrella) cb_POrigen.getSelectedItem());
         Dibujar db = new Dibujar();
         db.dibujarGrafo(mst);
     }//GEN-LAST:event_jb_primActionPerformed
